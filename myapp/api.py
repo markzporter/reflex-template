@@ -24,7 +24,7 @@ body = """
 
 
 def test():
-
+    print('waht is happening')
     response = response = r.post(
         url=url,
         data='{"query":"query { me { name email } }"}',
