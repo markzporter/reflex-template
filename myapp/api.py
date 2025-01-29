@@ -1,5 +1,6 @@
 import reflex as rx
 import requests as r
+from rxconfig import config
 
 
 def root():
@@ -28,8 +29,11 @@ def test():
         url=url,
         data='{"query":"query { me { name email } }"}',
         headers={
-            "Authorization": 'Bearer 81335197-ccd2-484a-bf80-2edb17cdbcee',
+            "Authorization": f'Bearer {config.railway_api_token}',
             'Content-Type': 'application/json',
         })
 
+    print('hey')
+    print(response)
+    print(response.content)
     return response
