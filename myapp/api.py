@@ -33,7 +33,7 @@ def test():
             'Content-Type': 'application/json',
         })
 
-    print('hey')
+    print('hey trigger build')
     print(response)
     print(response.content)
     return response
