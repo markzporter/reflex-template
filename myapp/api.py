@@ -11,7 +11,7 @@ url = 'https://backboard.railway.com/graphql/v2'
 
 PROJECT_QUERY = """
 
-    query MyQuery {
+    query {
     projects {
         edges {
         node {
