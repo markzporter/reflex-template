@@ -15,7 +15,7 @@ def index() -> rx.Component:
         rx.color_mode_button(rx.color_mode_icon(), float="right"),
         rx.vstack(
             rx.heading("Welcome to Reflex on Railway!", font_size="2em"),
-            rx.box("Get started by editing ", rx.code(filename, font_size="1em")),
+            rx.box("MARK ", rx.code(filename, font_size="1em")),
             rx.link(
                 "Check out our docs!",
                 href=docs_url,
