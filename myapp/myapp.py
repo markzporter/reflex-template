@@ -7,6 +7,7 @@ from .pages import health
 from .pages import not_found
 
 from .api import root
+from .api import test
 
 app = rx.App()
 
@@ -16,6 +17,11 @@ app.add_page(health)
 app.api.add_api_route(
     path="/",
     endpoint=root
+)
+
+app.api.add_api_route(
+    path="/test",
+    endpoint=test
 )
 
 not_found_text = "The page you were looking for could not be found"
