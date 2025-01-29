@@ -36,4 +36,4 @@ def test():
     print('hey trigger build')
     print(response)
     print(response.content)
-    return response
+    return response.content
