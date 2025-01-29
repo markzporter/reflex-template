@@ -21,15 +21,13 @@ body = """
 """
 
 
-response = r.post(url=url,
+
+def test():
+    
+    response = r.post(url=url,
                   json={
                       "query": body,
                       "authorization": 'Bearer: 81335197-ccd2-484a-bf80-2edb17cdbcee'
                   })
-print("response status code: ", response.status_code)
-if response.status_code == 200:
-    print("response : ", response.content)
-
-
-def test():
-    return requests
+        
+    return response
