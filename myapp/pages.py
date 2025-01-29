@@ -7,15 +7,20 @@ filename = f"{config.app_name}/{config.app_name}.py"
 # Add state and page to the app.
 
 class State(rx.State):
-    # The app state
-    pass
+    count: int = 0
+
+    def increment(self):
+        self.count += 1
+
+    def decrement(self):
+        self.count -= 1
 
 def index() -> rx.Component:
     return rx.fragment(
         rx.color_mode_button(rx.color_mode_icon(), float="right"),
         rx.vstack(
             rx.heading("Welcome to Reflex on Railway!", font_size="2em"),
-            rx.box("MARK ", rx.code(filename, font_size="1em")),
+            rx.box("MARK", rx.code(filename, font_size="1em")),
             rx.link(
                 "Check out our docs!",
                 href=docs_url,
