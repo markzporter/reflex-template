@@ -67,7 +67,7 @@ def show_app(dashapp: DashApp):
 
 def refresh_button() -> rx.Component:
     rx.button(
-        rx.icon("refresh", size=26),
+        rx.icon("refresh-ccw", size=26),
         rx.text("Refresh", size="4", display=[
             "none", "none", "block"]),
         size="3",
