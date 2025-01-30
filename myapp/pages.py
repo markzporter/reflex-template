@@ -1,5 +1,6 @@
 from rxconfig import config
 import reflex as rx
+from .table import main_table
 
 docs_url = "https://reflex.dev/docs/getting-started/introduction"
 filename = f"{config.app_name}/{config.app_name}.py"
@@ -10,22 +11,7 @@ def index() -> rx.Component:
         rx.vstack(
             rx.heading("Welcome to Reflex on Railway!", font_size="2em"),
             rx.box("MARK", rx.code(filename, font_size="1em")),
-            rx.link(
-                "Check out our docs!",
-                href=docs_url,
-                border="0.1em solid",
-                padding="0.5em",
-                border_radius="0.5em",
-                _hover={
-                    "color": rx.color_mode_cond(
-                        light="rgb(107,99,246)",
-                        dark="rgb(179, 175, 255)",
-                    )
-                },
-            ),
-            spacing="1",
-            font_size="2em",
-            padding_top="10%",
+            main_table()
         ),
     )
 

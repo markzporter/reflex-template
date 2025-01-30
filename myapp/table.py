@@ -161,7 +161,7 @@ def _header_cell(text: str, icon: str):
     )
 
 
-def main_table():
+def main_table() -> rx.Component:
     return rx.fragment(
         rx.flex(
             add_dash_app_button(),
