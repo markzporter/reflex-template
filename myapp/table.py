@@ -28,26 +28,25 @@ def form_field(
     )
 
 
-
 class State(rx.State):
     """The app state."""
 
     apps: list[DashApp] = []
 
-
     def load_entries(self) -> list[DashApp]:
         """Get all apps from Railway."""
-        self.apps =  get_active_dash_deployments()
+        self.apps = get_active_dash_deployments()
 
     def add_dash_app(self, form_data):
         create_dash_app(form_data['repository'])
         self.load_entries()
         return rx.window_alert(f"App with repo {form_data['repository']} has been added. ")
-    
+
     def delete_dash_app(self, id: str):
         delete_dash_app(id)
         self.load_entries()
         return rx.window_alert(f"App has been deleted ")
+
 
 def show_app(app: DashApp):
     """Show a customer in a table row."""
@@ -62,8 +61,8 @@ def show_app(app: DashApp):
             size="2",
             variant="solid",
             color_scheme="red",
-                ),
-            )
+        ),
+    )
 
 
 def add_dash_app_button() -> rx.Component:
@@ -114,6 +113,7 @@ def add_dash_app_button() -> rx.Component:
                             "repository",
                             "user",
                         ),
+                    ),
 
                     rx.flex(
                         rx.dialog.close(
@@ -147,7 +147,7 @@ def add_dash_app_button() -> rx.Component:
             border=f"2px solid {rx.color('accent', 7)}",
             border_radius="25px",
         ),
-    ))
+    )
 
 
 def _header_cell(text: str, icon: str):
