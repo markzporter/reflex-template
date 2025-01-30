@@ -176,10 +176,10 @@ def main_table() -> rx.Component:
             add_dash_app_button(),
             rx.spacer(),
         ),
-        rx.flex(
-            refresh_button(),
-            rx.spacer(),
-        ),
+        # rx.flex(
+        #     refresh_button(),
+        #     rx.spacer(),
+        # ),
         rx.table.root(
             rx.table.header(
                 rx.table.row(
