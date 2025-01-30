@@ -59,7 +59,7 @@ def show_app(dashapp: DashApp):
         rx.table.cell(dashapp.created_at),
         rx.icon_button(
             rx.icon("trash-2", size=22),
-            on_click=lambda: State.delete_dash_app(dashapp.id),
+            on_click=lambda: State.delete_dash_app(dashapp.service_id),
             size="2",
             variant="solid",
             color_scheme="red",

@@ -100,13 +100,13 @@ def unpack_dashapps(data) -> list[DashApp]:
     for item in data:
         name = item.get('service', {}).get('name', '')
         url = item.get('staticUrl', '')  # you could also check item.get('url', '')
-        app_id = item.get('id', '')
+        service_id = item.get('serviceId', '')
         created_at = item.get('createdAt', '')
         deployment_status = item.get('status', '')
 
         # Create an instance of DashApp and append it to the list
         dashapp = DashApp(app_name=name,
-                          url=url, id=app_id,
+                          url=url, service_id=service_id,
                           created_at=created_at,
                           deployment_status=deployment_status)
         dashapps.append(dashapp)
