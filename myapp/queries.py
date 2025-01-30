@@ -105,7 +105,7 @@ def unpack_dashapps(data) -> list[DashApp]:
         created_at = item.get('createdAt', '')
         
         # Create an instance of DashApp and append it to the list
-        dashapp = DashApp(name=name, url=url, id=app_id, created_at=created_at)
+        dashapp = DashApp(app_name=name, url=url, id=app_id, created_at=created_at)
         dashapps.append(dashapp)
         
     return dashapps

@@ -52,7 +52,7 @@ def show_app(dashapp: DashApp):
     """Show a customer in a table row."""
 
     return rx.table.row(
-        rx.table.cell(dashapp.name),
+        rx.table.cell(dashapp.app_name),
         rx.table.cell(dashapp.url),
         rx.table.cell(dashapp.created_at),
         rx.icon_button(
