@@ -48,16 +48,16 @@ class State(rx.State):
         return rx.window_alert(f"App has been deleted ")
 
 
-def show_app(app: DashApp):
+def show_app(dashapp: DashApp):
     """Show a customer in a table row."""
 
     return rx.table.row(
-        rx.table.cell(app.name),
-        rx.table.cell(app.url),
-        rx.table.cell(app.created_at),
+        rx.table.cell(dashapp.name),
+        rx.table.cell(dashapp.url),
+        rx.table.cell(dashapp.created_at),
         rx.icon_button(
             rx.icon("trash-2", size=22),
-            on_click=lambda: State.delete_dash_app(app.id),
+            on_click=lambda: State.delete_dash_app(dashapp.id),
             size="2",
             variant="solid",
             color_scheme="red",
