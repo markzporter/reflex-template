@@ -23,7 +23,7 @@ def index() -> rx.Component:
                     )
                 },
             ),
-            spacing="1.5em",
+            spacing="1",
             font_size="2em",
             padding_top="10%",
         ),
@@ -34,11 +34,7 @@ def health() -> rx.Component:
 
 def not_found(page_text) -> rx.Component:
     return rx.fragment(
-        rx.vstack(
             rx.heading(page_text, font_size="2em"),
-            spacing="1.5em",
-            padding_top="10%",
-        ),
     )
     
     
