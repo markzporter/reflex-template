@@ -4,4 +4,5 @@ class DashApp(rx.Model):
     url: str 
     id: str 
     created_at: str 
+    deployment_status: str 
     

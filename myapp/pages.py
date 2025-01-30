@@ -9,7 +9,7 @@ filename = f"{config.app_name}/{config.app_name}.py"
 def index() -> rx.Component:
     return rx.fragment(
         rx.vstack(
-            rx.heading("Welcome to the Dash App management console", font_size="2em"),
+            rx.heading("Welcome to the Dash App Management Console", font_size="2em"),
             main_table()
         ),
     )

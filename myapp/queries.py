@@ -1,8 +1,8 @@
+from .models import DashApp
+from rxconfig import config
 import requests as r
 import json
 url = 'https://backboard.railway.com/graphql/v2'
-from rxconfig import config
-from .models import DashApp
 
 
 # GQL Query Strings
@@ -95,7 +95,6 @@ def query_server(graphql_query_str: str, variables: dict):
     return response.content
 
 
-
 def unpack_dashapps(data) -> list[DashApp]:
     dashapps = []
     for item in data:
@@ -103,12 +102,17 @@ def unpack_dashapps(data) -> list[DashApp]:
         url = item.get('staticUrl', '')  # you could also check item.get('url', '')
         app_id = item.get('id', '')
         created_at = item.get('createdAt', '')
-        
+        deployment_status = item.get('node', {}).get('status', '')
+
         # Create an instance of DashApp and append it to the list
-        dashapp = DashApp(app_name=name, url=url, id=app_id, created_at=created_at)
+        dashapp = DashApp(app_name=name,
+                          url=url, id=app_id,
+                          created_at=created_at,
+                          deployment_status=deployment_status)
         dashapps.append(dashapp)
-        
+
     return dashapps
+
 
 def get_active_dash_deployments() -> list[DashApp]:
     variables = {
@@ -121,9 +125,9 @@ def get_active_dash_deployments() -> list[DashApp]:
 
     success_deployments = [
         deployment['node'] for deployment in deployments if
-        (deployment['node']['service']['name'] != 'Reflex' and deployment['node']['status'] == 'SUCCESS')
+        (deployment['node']['service']['name'] != 'Reflex')
     ]
-    
+
     dashapps: list[DashApp] = unpack_dashapps(success_deployments)
 
     return dashapps
@@ -168,12 +172,9 @@ def delete_dash_app(service_id: str):
     variables = {
         "serviceId": service_id
     }
-    query_server(DELETE_DASHAPP_SERVICE, variables=variables)
-
-
-
-print(get_active_dash_deployments())
-
-
+    ret = query_server(DELETE_DASHAPP_SERVICE, variables=variables)
+    print(ret)
+    
+    
 
 
