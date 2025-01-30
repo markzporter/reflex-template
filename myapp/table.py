@@ -67,7 +67,7 @@ def show_app(dashapp: DashApp):
 
 def refresh_button() -> rx.Component:
 
-    rx.icon_button(
+    return rx.icon_button(
         rx.icon("refresh-ccw", size=26),
         on_click=lambda: State.load_entries,
         size="3",
@@ -176,10 +176,10 @@ def main_table() -> rx.Component:
             add_dash_app_button(),
             rx.spacer(),
         ),
-        # rx.flex(
-        #     refresh_button(),
-        #     rx.spacer(),
-        # ),
+        rx.flex(
+            refresh_button(),
+            rx.spacer(),
+        ),
         rx.table.root(
             rx.table.header(
                 rx.table.row(
