@@ -65,12 +65,21 @@ def show_app(dashapp: DashApp):
     )
 
 
+def refresh_button() -> rx.Component:
+    rx.button(
+        rx.icon("refresh", size=26),
+        rx.text("Refresh", size="4", display=[
+            "none", "none", "block"]),
+        size="3",
+    ),
+
+
 def add_dash_app_button() -> rx.Component:
     return rx.dialog.root(
         rx.dialog.trigger(
             rx.button(
                 rx.icon("plus", size=26),
-                rx.text("Add Customer", size="4", display=[
+                rx.text("Add new Dash App", size="4", display=[
                         "none", "none", "block"]),
                 size="3",
             ),
@@ -165,19 +174,16 @@ def main_table() -> rx.Component:
     return rx.fragment(
         rx.flex(
             add_dash_app_button(),
+            refresh_button(),
             rx.spacer(),
         ),
         rx.table.root(
             rx.table.header(
                 rx.table.row(
                     _header_cell("Name", "user"),
-                    _header_cell("Email", "mail"),
-                    _header_cell("Phone", "phone"),
-                    _header_cell("Address", "home"),
-                    _header_cell("Payments", "dollar-sign"),
-                    _header_cell("Date", "calendar"),
-                    _header_cell("Status", "truck"),
-                    _header_cell("Actions", "cog"),
+                    _header_cell("URL", "link"),
+                    _header_cell("Created At", "time"),
+
                 ),
             ),
             rx.table.body(rx.foreach(State.apps, show_app)),
