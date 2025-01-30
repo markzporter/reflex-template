@@ -10,7 +10,11 @@ from .table import main_table as main
 from .api import root
 from .api import test
 
-app = rx.App()
+app = rx.App(
+        theme=rx.theme(
+        appearance="dark", has_background=True, radius="large", accent_color="grass"
+    ),
+)
 
 app.add_page(index)
 app.add_page(health)
@@ -34,4 +38,3 @@ app.add_custom_404_page(
     component=not_found(not_found_text)
 )
 
-app.compile()
