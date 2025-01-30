@@ -184,8 +184,8 @@ def main_table() -> rx.Component:
             rx.table.header(
                 rx.table.row(
                     _header_cell("Name", "user"),
-                    _header_cell("URL", "file-clock"),
-                    _header_cell("Created At", "time"),
+                    _header_cell("URL", "link"),
+                    _header_cell("Created At", "file-clock"),
 
                 ),
             ),
