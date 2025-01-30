@@ -4,16 +4,6 @@ import reflex as rx
 docs_url = "https://reflex.dev/docs/getting-started/introduction"
 filename = f"{config.app_name}/{config.app_name}.py"
 
-# Add state and page to the app.
-
-class State(rx.State):
-    count: int = 0
-
-    def increment(self):
-        self.count += 1
-
-    def decrement(self):
-        self.count -= 1
 
 def index() -> rx.Component:
     return rx.fragment(
@@ -52,3 +42,5 @@ def not_found(page_text) -> rx.Component:
             padding_top="10%",
         ),
     )
+    
+    

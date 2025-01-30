@@ -1,6 +1,6 @@
 import reflex as rx
-from myapp.models import DashApp
-from queries import get_active_dash_deployments, create_dash_app, delete_dash_app
+from .models import DashApp
+from .queries import get_active_dash_deployments, create_dash_app, delete_dash_app
 
 
 def form_field(
