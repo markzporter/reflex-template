@@ -54,7 +54,7 @@ def show_app(dashapp: DashApp):
     return rx.table.row(
         rx.table.cell(dashapp.app_name),
         rx.table.cell(dashapp.url),
-        rx.table.cell(dashapp.deployment_status)
+        rx.table.cell(dashapp.deployment_status),
 
         rx.table.cell(dashapp.created_at),
         rx.icon_button(
@@ -176,12 +176,10 @@ def main_table() -> rx.Component:
     return rx.fragment(
         rx.flex(
             add_dash_app_button(),
-            rx.spacer(),
-        ),
-        rx.flex(
             refresh_button(),
             rx.spacer(),
         ),
+
         rx.table.root(
             rx.table.header(
                 rx.table.row(
