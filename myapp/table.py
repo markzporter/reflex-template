@@ -174,6 +174,9 @@ def main_table() -> rx.Component:
     return rx.fragment(
         rx.flex(
             add_dash_app_button(),
+            rx.spacer(),
+        ),
+        rx.flex(
             refresh_button(),
             rx.spacer(),
         ),
