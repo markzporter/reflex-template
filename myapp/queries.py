@@ -2,7 +2,7 @@ import requests as r
 import json
 url = 'https://backboard.railway.com/graphql/v2'
 from rxconfig import config
-from myapp.models import DashApp
+from .models import DashApp
 
 
 # GQL Query Strings
