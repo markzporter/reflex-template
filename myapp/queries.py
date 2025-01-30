@@ -90,7 +90,7 @@ def query_server(graphql_query_str: str, variables: dict):
             "Content-Type": "application/json",
         },
     )
-    print(response)
+    print(response, response.content)
     response.raise_for_status()
     return response.content
 
@@ -102,7 +102,7 @@ def unpack_dashapps(data) -> list[DashApp]:
         url = item.get('staticUrl', '')  # you could also check item.get('url', '')
         app_id = item.get('id', '')
         created_at = item.get('createdAt', '')
-        deployment_status = item.get('node', {}).get('status', '')
+        deployment_status = item.get('status', '')
 
         # Create an instance of DashApp and append it to the list
         dashapp = DashApp(app_name=name,
@@ -173,7 +173,6 @@ def delete_dash_app(service_id: str):
         "serviceId": service_id
     }
     ret = query_server(DELETE_DASHAPP_SERVICE, variables=variables)
-    print(ret)
     
     
 
