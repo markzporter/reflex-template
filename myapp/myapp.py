@@ -5,6 +5,7 @@ import reflex as rx
 from .pages import index
 from .pages import health
 from .pages import not_found
+from .table import main_table as main
 
 from .api import root
 from .api import test
@@ -13,6 +14,7 @@ app = rx.App()
 
 app.add_page(index)
 app.add_page(health)
+app.add_page(main)
 
 app.api.add_api_route(
     path="/",

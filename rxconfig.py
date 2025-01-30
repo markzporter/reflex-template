@@ -15,6 +15,8 @@ config = ReflextemplateConfig(
     backend_port=8000, # default backend port
     # use https and the railway public domain with a backend route if available, otherwise default to a local address
     api_url=f'https://{os.environ[railway_domain]}/backend' if railway_domain in os.environ else "http://127.0.0.1:8000",
-    railway_api_token=f'{os.environ["API_KEY"]}'
+    railway_api_token=f'{os.environ["API_KEY"]}',
+    project_id=f'{os.environ["RAILWAY_PROJECT_ID"]}',
+    environment_id=f'{os.environ["RAILWAY_ENVIRONMENT_ID"]}',
 )
 
