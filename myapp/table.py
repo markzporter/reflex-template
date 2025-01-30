@@ -66,12 +66,12 @@ def show_app(dashapp: DashApp):
 
 
 def refresh_button() -> rx.Component:
-    rx.fragment(
+
     rx.icon_button(
         rx.icon("refresh-ccw", size=26),
         on_click=lambda: State.load_entries,
         size="3",
-    ))
+        )
 
 
 def add_dash_app_button() -> rx.Component:
