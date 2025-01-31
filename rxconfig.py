@@ -9,7 +9,7 @@ class ReflextemplateConfig(rx.Config):
     pass
 
 config = ReflextemplateConfig(
-    app_name="myapp",
+    app_name="DashDeployer",
     telemetry_enabled=False,
     frontend_port=3000, # default frontend port
     backend_port=8000, # default backend port
