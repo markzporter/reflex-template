@@ -183,6 +183,8 @@ def main_table() -> rx.Component:
     return rx.fragment(
         rx.flex(
             add_dash_app_button(),
+            rx.spacer(),
+            rx.spacer(),
             refresh_button(),
             rx.spacer(),
         ),
@@ -194,6 +196,7 @@ def main_table() -> rx.Component:
                     _header_cell("URL", "link"),
                     _header_cell("Deployment Status", "plus"),
                     _header_cell("Created At", "file-clock"),
+                    _header_cell("Delete", "octagon-x"),
 
                 ),
             ),
