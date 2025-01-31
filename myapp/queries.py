@@ -49,9 +49,9 @@ mutation serviceCreate($projectId: String!, $repository: String) {
 """
 
 UPDATE_DASHAPP_SERVICE: str = """
-mutation MyMutation($serviceId: String!, $environmentId: String!) {
+mutation MyMutation($serviceId: String!, $environmentId: String!, $command: String!) {
 serviceInstanceUpdate(
-    input: {startCommand: "gunicorn app:server"}
+    input: {startCommand: $command}
     serviceId: $serviceId
 )
 serviceDomainCreate(
@@ -145,10 +145,11 @@ def create_dash_service(repository) -> str:
     return service_id
 
 
-def configure_dash_service(service_id: str):
+def configure_dash_service(service_id: str, command: str):
     variables = {
         "serviceId": service_id,
         "environmentId": config.environment_id,
+        "command": command, 
     }
     query_server(UPDATE_DASHAPP_SERVICE, variables=variables)
 
@@ -161,9 +162,9 @@ def deploy_dash_service(service_id: str):
     query_server(DEPLOY_DASHAPP_SERVICE, variables=variables)
 
 
-def create_dash_app(repository: str) -> str:
+def create_dash_app(repository: str, command: str) -> str:
     service_id = create_dash_service(repository=repository)
-    configure_dash_service(service_id=service_id)
+    configure_dash_service(service_id=service_id, command=command)
     deploy_dash_service(service_id=service_id)
     return service_id
 

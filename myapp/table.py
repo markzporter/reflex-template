@@ -38,7 +38,7 @@ class State(rx.State):
         self.apps = get_active_dash_deployments()
 
     def add_dash_app(self, form_data):
-        create_dash_app(form_data['repository'])
+        create_dash_app(form_data['repository'], form_data['command'])
         self.load_entries()
         return rx.window_alert(f"App with repo {form_data['repository']} has been added. ")
 
@@ -123,6 +123,13 @@ def add_dash_app_button() -> rx.Component:
                             "text",
                             "repository",
                             "user",
+                        ),
+                        form_field(
+                            "command",
+                            "gunicorn main:server",
+                            "text",
+                            "command",
+                            "square-chevron-right",
                         ),
                     ),
 
