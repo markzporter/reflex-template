@@ -53,7 +53,7 @@ def show_app(dashapp: DashApp):
 
     return rx.table.row(
         rx.table.cell(dashapp.app_name),
-        rx.table.cell(dashapp.url),
+        rx.table.cell(rx.link(dashapp.url, href=dashapp.url)),
         rx.table.cell(dashapp.deployment_status),
 
         rx.table.cell(dashapp.created_at),
@@ -81,7 +81,7 @@ def add_dash_app_button() -> rx.Component:
         rx.dialog.trigger(
             rx.button(
                 rx.icon("plus", size=26),
-                rx.text("Add new Dash App", size="4", display=[
+                rx.text("Add New Dash App", size="4", display=[
                         "none", "none", "block"]),
                 size="3",
             ),
