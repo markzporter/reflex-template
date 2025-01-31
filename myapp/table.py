@@ -53,7 +53,7 @@ def show_app(dashapp: DashApp):
 
     return rx.table.row(
         rx.table.cell(dashapp.app_name),
-        rx.table.cell(rx.link(dashapp.url, href=dashapp.url)),
+        rx.table.cell(rx.link(dashapp.url, href=f'http://{dashapp.url}')),
         rx.table.cell(dashapp.deployment_status),
 
         rx.table.cell(dashapp.created_at),
